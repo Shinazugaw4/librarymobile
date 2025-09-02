@@ -2,19 +2,19 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
 export default function ConfirmationScreen() {
-  const { name, studentId, course } = useLocalSearchParams<{
-    name: string;
-    studentId: string;
-    course: string;
+  const { title, author, isbn } = useLocalSearchParams<{
+    title: string;
+    author: string;
+    isbn: string;
   }>();
   const router = useRouter();
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Confirmation</Text>
-      <Text>Student Name: {name}</Text>
-      <Text>Student ID: {studentId}</Text>
-      <Text>Course: {course}</Text>
+      <Text style={styles.title}>Submission Successful!</Text>
+      <Text>Book Title: {title}</Text>
+      <Text>Author: {author}</Text>
+      <Text>ISBN: {isbn}</Text>
       <Button title="Go Back" onPress={() => router.back()} />
     </View>
   );

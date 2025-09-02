@@ -3,37 +3,37 @@ import { View, TextInput, Button, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 
 export default function FormScreen() {
-  const [name, setName] = useState('');
-  const [studentId, setStudentId] = useState('');
-  const [course, setCourse] = useState('');
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [isbn, setIsbn] = useState('');
   const router = useRouter();
 
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder="Student Name"
+        placeholder="Book Title"
         style={styles.input}
-        value={name}
-        onChangeText={setName}
+        value={title}
+        onChangeText={setTitle}
       />
       <TextInput
-        placeholder="Student ID"
+        placeholder="Author"
         style={styles.input}
-        value={studentId}
-        onChangeText={setStudentId}
+        value={author}
+        onChangeText={setAuthor}
       />
       <TextInput
-        placeholder="Course"
+        placeholder="ISBN"
         style={styles.input}
-        value={course}
-        onChangeText={setCourse}
+        value={isbn}
+        onChangeText={setIsbn}
       />
       <Button
         title="Submit"
         onPress={() =>
           router.push({
             pathname: '/confirmation',
-            params: { name, studentId, course },
+            params: { title, author, isbn },
           })
         }
       />
